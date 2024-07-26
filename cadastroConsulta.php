@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,58 +14,44 @@
         <img class="header__image" src="./assets/images/header.png" alt="">
     </header>
     <main class="principal">
-        <a href="inicio.php" class="princial__volta">Voltar</a>
+        <a href="inicio.php" class="principal__volta">Voltar</a>
 
         <h1 class="principal__title">Cadastro Consulta</h1>
-        <form action="" id="buscarPaciente">
+        <form action="" method="GET">
             Identificação do Paciente: <input type="text" class="form__input" name="idPaciente">
             <input type="submit" value="Buscar" class="btnBuscar">
         </form>
 
         <form action="" id="formConsulta">
             Procedimento: <input type="text">
-
-            <section class="box">
-                <div class="felicidade">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
-                <div class="alivio">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
-                <div class="medo">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
-                <div class="cansaco">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
-                <div class="dor">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                    <img src="" alt="">
-                </div>
-            </section>
             <div class="separar">
                 <input type="submit" value="Cadastrar" class="btnBuscar cadastrar">
             </div>
         </form>
+
+        <?php
+        include './assets/scripts/php/conexao.php';
+        if(isset($_GET['idPaciente'])) {
+            $id = intval($_GET['idPaciente']);
+
+            $sql_code = "SELECT pele_Avat, rosto_Avat, cabelo_Avat, torso_Avat, pernas_Avat FROM avatar WHERE id_Avat = $id";
+            $result = $mysqli->query($sql_code);
+
+            if ($result->num_rows > 0) {
+                echo '<div class="form__avatar">';
+                while($row = $result->fetch_assoc()) {
+                    echo '<img class="cabelo" src="'.$row["cabelo_Avat"].'" alt="Cabelo">';
+                    echo '<img class="rosto" src="'.$row["rosto_Avat"].'" alt="Rosto">';
+                    echo '<img class="pele" src="'.$row["pele_Avat"].'" alt="Pele">';
+                    echo '<img class="torso" src="'.$row["torso_Avat"].'" alt="Torso">';
+                    echo '<img class="pernas" src="'.$row["pernas_Avat"].'" alt="Pernas">';
+                }
+                echo '</div>';
+            } else {
+                echo "Erro: " . $sql_code . "<br>" . $mysqli->error;
+            }
+        }
+        ?>
     </main>
 </body>
 </html>
