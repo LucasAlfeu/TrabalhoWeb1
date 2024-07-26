@@ -41,9 +41,7 @@
             </div>
         </form>
         <div class="result-container table-container">
-            <table class="fixed-table">
-                <?php include 'buscarPaci.php'; ?>
-            </table>
+            <?php include 'buscarPaci.php'; ?>
         </div>
         <div class="buttons-container">
             <div>
@@ -51,7 +49,7 @@
                 <a href="cadastroPaciente.php"><button class="btn">Cadastrar Paciente</button></a>
             </div>
             <div>
-            <img src="./assets/images/bebe.png" alt="Imagem de um bebê" class="rounded-image">    
+                <img src="./assets/images/bebe.png" alt="Imagem de um bebê" class="rounded-image">    
             </div>
         </div>
     </main>
