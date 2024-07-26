@@ -18,7 +18,6 @@ if(isset($_POST['nome']) || isset($_POST['identificacao']) || isset($_POST['usua
         $usuario = $mysqli->real_escape_string($_POST['usuario']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        
         $sql_code = "INSERT INTO dentista(nome,identificacao,usuario,senha) VALUES('$nome','$identificacao','$usuario','$senha')";
         
 
