@@ -1,8 +1,102 @@
-#buscarPaciente{
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header__image {
+    width: 100%;
+    height: 15rem;
+}
+
+.principal {
+    margin: 0 5rem 1rem 5rem;
+}
+
+.principal__volta {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.principal__volta:hover {
+    color: #005EFF;
+}
+
+.principal__title {
+    margin: 1rem 0;
+}
+
+.formulario__titulo {
+    margin: 2rem 0;
+}
+
+.principal__formulario {
+    margin: 1.5rem;
+}
+
+.form__box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.form__input {
+    width: 300px;
+    padding: 0.25rem 0.75rem;
+}
+
+.form__avatar {
+    position: relative;
+    width: 200px;
+    height: 500px;
+    margin: 20px auto;
+}
+
+.cabelo, .rosto, .pele, .torso, .pernas {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.cabelo {
+    z-index: 5;
+    top: -3px;
+    left: 2px;
+}
+
+.rosto {
+    z-index: 6;
+    top: 0;
+    left: 0;
+}
+
+.pele {
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+
+.torso {
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+
+.pernas {
+    z-index: 5;
+    top: 0;
+    left: 0;
+}
+
+#buscarPaciente {
     margin: 3.5rem 0;
 }
 
-.btnBuscar{
+.btnBuscar {
     background-color: #005EFF;
     color: #fff;
     padding: .3rem .75rem;
@@ -10,25 +104,25 @@
     border: none;
 }
 
-.felicidade, .alivio, .dor, .medo, .cansaco{
+.felicidade, .alivio, .dor, .medo, .cansaco {
     background-color: black;
     width: 250px;
     height: 250px;
     margin: 1rem;
 }
 
-.box{
+.box {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2rem 0;
 }
 
-.cadastrar{
+.cadastrar {
     
 }
 
-.separar{
+.separar {
     width: 100%;
     display: flex;
     justify-content: flex-end;
