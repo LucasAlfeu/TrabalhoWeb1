@@ -118,6 +118,7 @@
                                         FOREIGN KEY (id_Form) REFERENCES formulario(id_Form),
                                         CONSTRAINT fk_dentista_consulta
                                         FOREIGN KEY (id_Dent) REFERENCES dentista(id_Dent),
+
                                         CONSTRAINT fk_pacient_consulta
                                         FOREIGN KEY (id_Pac) REFERENCES formulario(id_Pac))"
     or die("Error in the create Dentista table... ".$link->query($query_create_table_consulta));
