@@ -12,7 +12,7 @@
         <img class="header__image" src="./assets/images/header.png" alt="">
     </header>
     <main class="principal">
-        <a href="" class="princial__volta">Voltar</a>
+        <a href="inicio.php" class="princial__volta">Voltar</a>
 
         <h1 class="principal__title">Cadastro Consulta</h1>
         <form action="" id="buscarPaciente">

@@ -11,7 +11,7 @@
         <img class="header__image" src="./assets/images/header.png" alt="">
     </header>
     <main class="principal">
-        <a href="" class="princial__volta">Voltar</a>
+        <a href="inicio.php" class="princial__volta">Voltar</a>
         <h1 class="principal__title">Nome do Paciente</h1>
         <section class="historico">
             
