@@ -113,6 +113,9 @@
             } else {
                 echo "Erro: " . $sql_paciente . "<br>" . $conn->error;
             }
+
+            header("Location: inicio.php");
+            exit();
         }
     }
  ?>
@@ -191,12 +194,6 @@
             <input type="submit" value="Cadastrar" class="form__btnCadastrar" onclick="">
         </form>
         <div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <br>
             <br>
             <br>
