@@ -1,0 +1,35 @@
+#buscarPaciente{
+    margin: 3.5rem 0;
+}
+
+.btnBuscar{
+    background-color: #005EFF;
+    color: #fff;
+    padding: .3rem .75rem;
+    margin-left: 2rem;
+    border: none;
+}
+
+.felicidade, .alivio, .dor, .medo, .cansaco{
+    background-color: black;
+    width: 250px;
+    height: 250px;
+    margin: 1rem;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.cadastrar{
+    
+}
+
+.separar{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
