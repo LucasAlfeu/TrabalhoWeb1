@@ -1,0 +1,50 @@
+.principal__login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+}
+.box__login{
+    width: 40%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.caixa{
+    display: flex;
+    flex-direction: column;
+}
+.ipt_usuario{
+    margin: 0 0 1.5rem;
+    padding: .25rem .75rem;
+    width: 300px;
+}
+.divisao{
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    width: 50%;
+}
+.btnForm{
+    color: #fff;
+    background-color: #005EFF;
+    border: none;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: .25rem .75rem;
+}
+
+.btnForm:hover{
+    cursor: pointer;
+    background-color: #3962AA;
+}

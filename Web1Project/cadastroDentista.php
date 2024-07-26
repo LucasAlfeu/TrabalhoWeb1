@@ -9,7 +9,7 @@ if(isset($_POST['nome']) || isset($_POST['identificacao']) || isset($_POST['usua
     else if(strlen($_POST['identificacao']) == 0) {
         echo "Preencha o campo de número do paciente";
     }
-    
+        //Fazer ajustes para rodar no meu banco de dados
 
     else {
 
@@ -18,7 +18,8 @@ if(isset($_POST['nome']) || isset($_POST['identificacao']) || isset($_POST['usua
         $usuario = $mysqli->real_escape_string($_POST['usuario']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "INSERT INTO dentista(nome,identificacao,usuario,senha) VALUES('$nome','$identificacao','$usuario','$senha')";
+        $sql_code = "INSERT INTO dentista(nome_Dent,usuario_Dent,senha_Dent) VALUES('$nome','$usuario','$senha')";
+        // $sql_code = "INSERT INTO dentista(nome,identificacao,usuario,senha) VALUES('$nome','$identificacao','$usuario','$senha')";
         
 
         if ($mysqli->query($sql_code) === TRUE) {
