@@ -113,6 +113,7 @@
                                         data_Cons varchar(12) NOT NULL,
                                         id_Form int NOT NULL,
                                         id_Dent int NOT NULL,
+                                        id_Pac int NOT NULL,
                                         CONSTRAINT fk_form_consulta
                                         FOREIGN KEY (id_Form) REFERENCES formulario(id_Form),
                                         CONSTRAINT fk_dentista_consulta
