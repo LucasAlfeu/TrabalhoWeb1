@@ -169,3 +169,17 @@ th {
     display: block; /* Faz com que a imagem seja exibida como um bloco */
     margin: 10px auto; /* Centraliza a imagem horizontalmente */
 }
+.logo {
+    width: auto;
+    max-height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.rounded-image {
+    border-radius: 50%;
+    width: auto;
+    max-height: 150px;
+    display: block;
+    margin: 0 auto;
+}

@@ -2,7 +2,7 @@
 $url = 'localhost';
 $usuario = 'root';
 $senha = '';
-$dataBase = '';
+$dataBase = 'web1';
 
 $link = new mysqli($url, $usuario, $senha, $dataBase);
 $link->set_charset('utf8');
@@ -10,9 +10,6 @@ $link->set_charset('utf8');
 if($link->connect_error) {
     die('Connect Error ('.mysqli_connect_errno().')'.mysqli_connect_error());
 }
-
-$nameDataBase = "web1";
-mysqli_select_db($link, $nameDataBase);
 
 if (isset($_GET['query']) && !empty($_GET['query'])) {
     $query = $link->real_escape_string($_GET['query']);
@@ -32,7 +29,7 @@ if (isset($_GET['query']) && !empty($_GET['query'])) {
                     <td>{$row['id_Pac']}</td>
                     <td>{$row['nome_Paci']}</td>
                     <td>{$row['dataNasci_Pac']}</td>
-                    <td><a href='./historicoPaciente.php'>Link</a></td>
+                    <td><a href='./historicoPaciente.php?id_Pac={$row['id_Pac']}'>Link</a></td>
                   </tr>";
         }
         echo "</table>";
