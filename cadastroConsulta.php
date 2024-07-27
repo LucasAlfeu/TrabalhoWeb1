@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,7 +8,7 @@
     <title>Cadastro Consulta</title>
 </head>
 <body>
-<header class="header">
+    <header class="header">
         <img class="header__image" src="./assets/images/header.png" alt="">
     </header>
     <main class="principal">
@@ -22,20 +20,20 @@
             <input type="submit" value="Buscar" class="btnBuscar">
         </form>
 
-        <form action="" id="formConsulta">
-            Procedimento: <input type="text">
-            <div class="separar">
-                <input type="submit" value="Cadastrar" class="btnBuscar cadastrar">
-            </div>
-        </form>
-
         <?php
         include './assets/scripts/php/conexao.php';
+
+        $idPaci = '';
         if(isset($_GET['idPaciente'])) {
             $id = intval($_GET['idPaciente']);
+            $idPaci = $id;
+            $sql_code = "SELECT pele_Avat, rosto_Avat, cabelo_Avat, torso_Avat, pernas_Avat FROM avatar WHERE id_Avat = ?";
+            $stmt = $mysqli->prepare($sql_code);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
 
-            $sql_code = "SELECT pele_Avat, rosto_Avat, cabelo_Avat, torso_Avat, pernas_Avat FROM avatar WHERE id_Avat = $id";
-            $result = $mysqli->query($sql_code);
+            $idDoPaciente = $mysqli->insert_id;
 
             if ($result->num_rows > 0) {
                 echo '<div class="form__avatar">';
@@ -48,7 +46,71 @@
                 }
                 echo '</div>';
             } else {
-                echo "Erro: " . $sql_code . "<br>" . $mysqli->error;
+                echo "Nenhum avatar encontrado.";
+            }
+        }
+        ?>
+
+        <form action="" id="formConsulta" method="POST">
+            Procedimento: <input type="text" name="procedimento">
+            <div class="separar"></div>
+            Numero do dentista: <input type="text" name="nroDentista">
+            <div class="separar">
+                <input type="submit" value="Cadastrar" class="btnBuscar cadastrar">
+            </div>
+        </form>
+
+        <form action="" method="post">
+            <label>
+                <input type="radio" name="emotion" value="Feliz"> Feliz
+            </label>
+            <label>
+                <input type="radio" name="emotion" value="Aliviado"> Aliviado
+            </label>
+            <label>
+                <input type="radio" name="emotion" value="Dor"> Dor
+            </label>
+            <label>
+                <input type="radio" name="emotion" value="Medo"> Medo
+            </label>
+            <label>
+                <input type="radio" name="emotion" value="Cansaço"> Cansaço
+            </label>
+        </form>
+
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $procedimento = $_POST["procedimento"] ?? '';
+            $nroDent = $_POST["nroDentista"] ?? '';
+            $idPaci = intval($_GET['idPaciente'] ?? 0);
+            $data = date("Y-m-d"); // Formato de data correto para MySQL
+
+            // Verifica se os campos estão preenchidos
+            if (!empty($procedimento) && !empty($nroDent) && !empty($idPaci)) {
+
+                // Verifica se o paciente existe
+                $sql_check_pac = "SELECT id_Pac FROM paciente WHERE id_Pac = ?";
+                $stmt_check = $mysqli->prepare($sql_check_pac);
+                $stmt_check->bind_param("i", $idPaci);
+                $stmt_check->execute();
+                $result_check = $stmt_check->get_result();
+
+                if ($result_check->num_rows > 0) {
+                    // Insere a consulta
+                    $sql_consult = "INSERT INTO consulta (procedimenti_Cons, data_Cons, id_Dent, id_Pac) VALUES (?, ?, ?, ?)";
+                    $stmt = $mysqli->prepare($sql_consult);
+                    $stmt->bind_param("ssii", $procedimento, $data, $nroDent, $idPaci);
+
+                    if ($stmt->execute()) {
+                        echo "Consulta cadastrada com sucesso.";
+                    } else {
+                        echo "Erro ao cadastrar consulta: " . $stmt->error;
+                    }
+                } else {
+                    echo "Paciente não encontrado.";
+                }
+            } else {
+                echo "Preencha todos os campos.";
             }
         }
         ?>

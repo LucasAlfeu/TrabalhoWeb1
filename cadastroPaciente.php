@@ -110,12 +110,13 @@
             $sql_paciente = "INSERT INTO paciente(nome_Paci, dataNasci_Pac, id_Resp, id_Avat) VALUES('$nomePaci', '$nasciPaci', '$idResp', '$idAvat')";
             if ($conn->query($sql_paciente) === TRUE) {
                 echo "Novo registro criado com sucesso";
+                header("Location: inicio.php");
+                exit();
             } else {
                 echo "Erro: " . $sql_paciente . "<br>" . $conn->error;
             }
 
-            header("Location: inicio.php");
-            exit();
+
         }
     }
  ?>

@@ -55,6 +55,10 @@ if(isset($_POST['Procedimento']) || isset($_POST['NroPaciente'])) {
                 <label>Número do Paciente: </label>
                 <input type="text" name="NroPaciente" style="width: 570px; height: 20px;">
             </p>
+            <p>
+                <label>Número do Dentista: </label>
+                <input type="text" name="NroDentista" style="width: 570px; height: 20px;">
+            </p>
             
 
 

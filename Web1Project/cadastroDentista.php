@@ -19,12 +19,14 @@ if(isset($_POST['nome']) || isset($_POST['identificacao']) || isset($_POST['usua
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
 
-        $sql_code = "INSERT INTO dentista(nome_Dent,identificacao_Dent,usuario_Dent,senha) VALUES('$nome','$identificacao','$usuario','$senha')";
+        $sql_code = "INSERT INTO dentista(nome_Dent,usuario_Dent,senha_Dent) VALUES('$nome','$usuario','$senha')";
         // $sql_code = "INSERT INTO dentista(nome,identificacao,usuario,senha) VALUES('$nome','$identificacao','$usuario','$senha')";
         
 
         if ($mysqli->query($sql_code) === TRUE) {
             echo "Novo registro criado com sucesso";
+            header("Location: ../index.php");
+            exit();
         } else {
             echo "Erro: " . $sql_code . "<br>" . $mysqli->error;
         }
@@ -33,7 +35,7 @@ if(isset($_POST['nome']) || isset($_POST['identificacao']) || isset($_POST['usua
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

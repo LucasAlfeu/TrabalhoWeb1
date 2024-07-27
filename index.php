@@ -111,15 +111,13 @@
                                         id_Cons int AUTO_INCREMENT PRIMARY KEY,
                                         procedimenti_Cons varchar(50) NOT NULL,
                                         data_Cons varchar(12) NOT NULL,
-                                        id_Form int NOT NULL,
+                                        resp varchar(20) NOT NULL,
                                         id_Dent int NOT NULL,
                                         id_Pac int NOT NULL,
-                                        CONSTRAINT fk_form_consulta
-                                        FOREIGN KEY (id_Form) REFERENCES formulario(id_Form),
                                         CONSTRAINT fk_dentista_consulta
                                         FOREIGN KEY (id_Dent) REFERENCES dentista(id_Dent),
                                         CONSTRAINT fk_pacient_consulta
-                                        FOREIGN KEY (id_Pac) REFERENCES formulario(id_Pac))"
+                                        FOREIGN KEY (id_Pac) REFERENCES paciente(id_Pac))"
     or die("Error in the create Dentista table... ".$link->query($query_create_table_consulta));
 
     if($link->query($query_create_table_consulta) === TRUE){
